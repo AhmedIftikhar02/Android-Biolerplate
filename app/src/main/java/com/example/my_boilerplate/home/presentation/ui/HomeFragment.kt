@@ -1,6 +1,7 @@
 package com.example.my_boilerplate.home.presentation.ui
 
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.my_boilerplate.R
 import com.example.my_boilerplate.base.BaseFragment
@@ -21,8 +22,9 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::infl
     private val viewModel: HomeViewModel by viewModels()
 
     private val adapter = ProductAdapter { product ->
-        // TODO: navigate to a detail screen, e.g.:
-        // findNavController().navigate(HomeFragmentDirections.actionHomeToDetail(product.id))
+        findNavController().navigate(
+            HomeFragmentDirections.actionHomeFragmentToHomeProductDetailFragment(product.id)
+        )
     }
 
     override fun setupViews() {

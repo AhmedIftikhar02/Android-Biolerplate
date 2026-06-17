@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
+
+    <!-- Premium Collapsible AppBarLayout -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:fitsSystemWindows="true"
+        android:background="@color/color_background"
+        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:statusBarScrim="?attr/colorPrimaryDark"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar"
+            app:collapsedTitleTextAppearance="@style/TextAppearance.App.Title"
+            app:expandedTitleTextAppearance="@style/TextAppearance.App.Headline"
+            app:expandedTitleMarginStart="@dimen/dp_16"
+            app:expandedTitleMarginBottom="@dimen/dp_24">
+
+            <!-- High-end Product Image -->
+            <ImageView
+                android:id="@+id/ivProductImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.7"
+                tools:ignore="ContentDescription"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <!-- Dynamic Shadow Gradient Overlay -->
+            <View
+                android:id="@+id/vImageGradientOverlay"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/bg_image_shadow"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.7" />
+
+            <!-- Toolbar -->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="?attr/homeAsUpIndicator"
+                app:titleTextColor="@color/color_on_primary" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Content Scroll View wrapped in StateLayout -->
+    <com.example.my_boilerplate.common.widgets.StateLayout
+        android:id="@+id/stateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_16">
+
+                <!-- Pill Badges Row (Status, Category, Discount) -->
+                <LinearLayout
+                    android:id="@+id/layoutBadges"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <!-- Category Badge -->
+                    <TextView
+                        android:id="@+id/tvCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_badge_pill"
+                        android:paddingHorizontal="@dimen/dp_12"
+                        android:paddingVertical="@dimen/dp_4"
+                        android:textColor="@color/color_on_surface_variant"
+                        style="@style/TextAppearance.App.Caption"
+                        android:textStyle="bold"
+                        tools:text="Smartphones" />
+
+                    <!-- Status Badge (In Stock) -->
+                    <TextView
+                        android:id="@+id/tvStockStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_8"
+                        android:background="@drawable/bg_badge_pill"
+                        android:paddingHorizontal="@dimen/dp_12"
+                        android:paddingVertical="@dimen/dp_4"
+                        android:textColor="@color/color_primary"
+                        style="@style/TextAppearance.App.Caption"
+                        android:textStyle="bold"
+                        tools:text="In Stock" />
+
+                    <!-- Discount Tag -->
+                    <TextView
+                        android:id="@+id/tvDiscount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_8"
+                        android:background="@drawable/bg_badge_pill"
+                        android:backgroundTint="@color/color_error"
+                        android:paddingHorizontal="@dimen/dp_12"
+                        android:paddingVertical="@dimen/dp_4"
+                        android:textColor="@color/color_on_error"
+                        style="@style/TextAppearance.App.Caption"
+                        android:textStyle="bold"
+                        tools:text="-12% OFF" />
+
+                </LinearLayout>
+
+                <!-- Product Title -->
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_12"
+                    style="@style/TextAppearance.App.Headline"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_on_background"
+                    app:layout_constraintTop_toBottomOf="@id/layoutBadges"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="iPhone 13 Pro Max" />
+
+                <!-- Brand / Manufacturer -->
+                <TextView
+                    android:id="@+id/tvBrand"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    style="@style/TextAppearance.App.Body"
+                    android:textColor="@color/color_primary"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="by Apple" />
+
+                <!-- Divider 1 -->
+                <View
+                    android:id="@+id/divider1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/stroke_width_thin"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:background="@color/color_divider"
+                    app:layout_constraintTop_toBottomOf="@id/tvBrand" />
+
+                <!-- Price & Deal Section -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_16"
+                    app:layout_constraintTop_toBottomOf="@id/divider1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <!-- Current Price -->
+                    <TextView
+                        android:id="@+id/tvPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_display"
+                        android:textStyle="bold"
+                        android:textColor="@color/color_primary"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:text="$999.00" />
+
+                    <!-- Original Strikethrough Price -->
+                    <TextView
+                        android:id="@+id/tvOriginalPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_8"
+                        android:textColor="@color/color_hint"
+                        style="@style/TextAppearance.App.Body"
+                        app:layout_constraintBottom_toBottomOf="@id/tvPrice"
+                        app:layout_constraintStart_toEndOf="@id/tvPrice"
+                        app:layout_constraintTop_toTopOf="@id/tvPrice"
+                        tools:text="$1,199.00" />
+
+                    <!-- Promo Text -->
+                    <TextView
+                        android:id="@+id/tvPromoText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_2"
+                        style="@style/TextAppearance.App.Caption"
+                        android:textColor="@color/color_on_surface_variant"
+                        app:layout_constraintTop_toBottomOf="@id/tvPrice"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:text="Inclusive of all taxes &amp; standard shipping" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Divider 2 -->
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/stroke_width_thin"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:background="@color/color_divider"
+                    app:layout_constraintTop_toBottomOf="@id/layoutPrice" />
+
+                <!-- Product Highlights / Specs Horizontal Scroll -->
+                <TextView
+                    android:id="@+id/tvHighlightsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_16"
+                    style="@style/TextAppearance.App.Title"
+                    android:textStyle="bold"
+                    android:text="Highlights"
+                    app:layout_constraintTop_toBottomOf="@id/divider2"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <HorizontalScrollView
+                    android:id="@+id/svHighlights"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:scrollbars="none"
+                    android:clipToPadding="false"
+                    app:layout_constraintTop_toBottomOf="@id/tvHighlightsLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <!-- Spec Item 1: Display -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@drawable/bg_card_outlined"
+                            android:paddingHorizontal="@dimen/dp_16"
+                            android:paddingVertical="@dimen/dp_12"
+                            android:minWidth="90dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.App.Caption"
+                                android:textColor="@color/color_hint"
+                                android:text="Display" />
+
+                            <TextView
+                                android:id="@+id/tvHighlightDisplay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp_4"
+                                style="@style/TextAppearance.App.Body"
+                                android:textStyle="bold"
+                                android:textColor="@color/color_on_surface"
+                                tools:text="6.7-inch OLED" />
+                        </LinearLayout>
+
+                        <!-- Spec Item 2: Category -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:background="@drawable/bg_card_outlined"
+                            android:paddingHorizontal="@dimen/dp_16"
+                            android:paddingVertical="@dimen/dp_12"
+                            android:minWidth="90dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.App.Caption"
+                                android:textColor="@color/color_hint"
+                                android:text="Category" />
+
+                            <TextView
+                                android:id="@+id/tvHighlightCategory"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp_4"
+                                style="@style/TextAppearance.App.Body"
+                                android:textStyle="bold"
+                                android:textColor="@color/color_on_surface"
+                                tools:text="Smartphones" />
+                        </LinearLayout>
+
+                        <!-- Spec Item 3: Rating -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:background="@drawable/bg_card_outlined"
+                            android:paddingHorizontal="@dimen/dp_16"
+                            android:paddingVertical="@dimen/dp_12"
+                            android:minWidth="90dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.App.Caption"
+                                android:textColor="@color/color_hint"
+                                android:text="Rating" />
+
+                            <TextView
+                                android:id="@+id/tvHighlightRating"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp_4"
+                                style="@style/TextAppearance.App.Body"
+                                android:textStyle="bold"
+                                android:textColor="@color/color_on_surface"
+                                tools:text="4.69 ★" />
+                        </LinearLayout>
+
+                        <!-- Spec Item 4: Stock -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:background="@drawable/bg_card_outlined"
+                            android:paddingHorizontal="@dimen/dp_16"
+                            android:paddingVertical="@dimen/dp_12"
+                            android:minWidth="90dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.App.Caption"
+                                android:textColor="@color/color_hint"
+                                android:text="Stock Left" />
+
+                            <TextView
+                                android:id="@+id/tvHighlightStock"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp_4"
+                                style="@style/TextAppearance.App.Body"
+                                android:textStyle="bold"
+                                android:textColor="@color/color_on_surface"
+                                tools:text="94 items" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!-- Divider 3 -->
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/stroke_width_thin"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:background="@color/color_divider"
+                    app:layout_constraintTop_toBottomOf="@id/svHighlights" />
+
+                <!-- Product Description Section -->
+                <TextView
+                    android:id="@+id/tvDescriptionLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_16"
+                    style="@style/TextAppearance.App.Title"
+                    android:textStyle="bold"
+                    android:text="Description"
+                    app:layout_constraintTop_toBottomOf="@id/divider3"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    style="@style/TextAppearance.App.Body"
+                    android:textColor="@color/color_on_surface_variant"
+                    android:lineSpacingMultiplier="1.2"
+                    app:layout_constraintTop_toBottomOf="@id/tvDescriptionLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Experience the best with the new iPhone 13 Pro Max. Featuring a pro camera system, cinematic mode, Super Retina XDR display with ProMotion, and the lightning-fast A15 Bionic chip." />
+
+                <!-- Divider 4 -->
+                <View
+                    android:id="@+id/divider4"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/stroke_width_thin"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:background="@color/color_divider"
+                    app:layout_constraintTop_toBottomOf="@id/tvDescription" />
+
+                <!-- Rating Breakdown Section -->
+                <TextView
+                    android:id="@+id/tvRatingsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_16"
+                    style="@style/TextAppearance.App.Title"
+                    android:textStyle="bold"
+                    android:text="Ratings &amp; Reviews"
+                    app:layout_constraintTop_toBottomOf="@id/divider4"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutRatingsBreakdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_12"
+                    app:layout_constraintTop_toBottomOf="@id/tvRatingsLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <!-- Left Column: Rating Score Card -->
+                    <LinearLayout
+                        android:id="@+id/layoutScoreCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/bg_card_outlined"
+                        android:paddingHorizontal="@dimen/dp_16"
+                        android:paddingVertical="@dimen/dp_16"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <!-- Score (4.69) -->
+                        <TextView
+                            android:id="@+id/tvRating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_display"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_on_surface"
+                            tools:text="4.69" />
+
+                        <!-- Rating Stars -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="@dimen/dp_4"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_small"
+                                android:layout_height="@dimen/icon_small"
+                                android:src="@drawable/ic_star"
+                                tools:ignore="ContentDescription" />
+                            <ImageView
+                                android:layout_width="@dimen/icon_small"
+                                android:layout_height="@dimen/icon_small"
+                                android:layout_marginStart="1dp"
+                                android:src="@drawable/ic_star"
+                                tools:ignore="ContentDescription" />
+                            <ImageView
+                                android:layout_width="@dimen/icon_small"
+                                android:layout_height="@dimen/icon_small"
+                                android:layout_marginStart="1dp"
+                                android:src="@drawable/ic_star"
+                                tools:ignore="ContentDescription" />
+                            <ImageView
+                                android:layout_width="@dimen/icon_small"
+                                android:layout_height="@dimen/icon_small"
+                                android:layout_marginStart="1dp"
+                                android:src="@drawable/ic_star"
+                                tools:ignore="ContentDescription" />
+                            <ImageView
+                                android:layout_width="@dimen/icon_small"
+                                android:layout_height="@dimen/icon_small"
+                                android:layout_marginStart="1dp"
+                                android:src="@drawable/ic_star"
+                                tools:ignore="ContentDescription" />
+                        </LinearLayout>
+
+                        <!-- Total Rating Count -->
+                        <TextView
+                            android:id="@+id/tvTotalRatings"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_8"
+                            style="@style/TextAppearance.App.Caption"
+                            android:textColor="@color/color_hint"
+                            tools:text="1,420 reviews" />
+
+                    </LinearLayout>
+
+                    <!-- Right Column: Bars Grid -->
+                    <LinearLayout
+                        android:id="@+id/layoutRatingBars"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="@dimen/dp_16"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/layoutScoreCard"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <!-- Row 5 Star -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="@dimen/dp_4"
+                            tools:ignore="UseCompoundDrawables">
+
+                            <TextView
+                                android:layout_width="24dp"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.App.Caption"
+                                android:textColor="@color/color_on_surface"
+                                android:textStyle="bold"
+                                android:text="5★" />
+
+                            <com.google.android.material.progressindicator.LinearProgressIndicator
+                                android:id="@+id/progress5Star"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginHorizontal="@dimen/dp_8"
+                                app:indicatorColor="@color/color_primary"
+                                app:trackColor="@color/color_surface_variant"
+                                app:trackCornerRadius="@dimen/corner_radius_small"
+                                app:trackThickness="@dimen/dp_6"
+                                android:progress="70" />
+
+                            <TextView
+                                android:id="@+id/tvCount5Star"
+                                android:layout_width="32dp"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.App.Caption"
+                                android:textColor="@color/color_hint"
+                                android:gravity="end"
+                                tools:text="70%" />
+                        </LinearLayout>
+
+                        <!-- Row 4 Star -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="@dimen/dp_4"
+                            tools:ignore="UseCompoundDrawables">
+
+                            <TextView
+                                android:layout_width="24dp"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.App.Caption"
+                                android:textColor="@color/color_on_surface"
+                                android:textStyle="bold"
+                                android:text="4★" />
+
+                            <com.google.android.material.progressindicator.LinearProgressIndicator
+                                android:id="@+id/progress4Star"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginHorizontal="@dimen/dp_8"
+                                app:indicatorColor="@color/color_primary"
+                                app:trackColor="@color/color_surface_variant"
+                                app:trackCornerRadius="@dimen/corner_radius_small"
+                                app:trackThickness="@dimen/dp_6"
+                                android:progress="15" />
+
+                            <TextView
+                                android:id="@+id/tvCount4Star"
+                                android:layout_width="32dp"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.App.Caption"
+                                android:textColor="@color/color_hint"
+                                android:gravity="end"
+                                tools:text="15%" />
+                        </LinearLayout>
+
+                        <!-- Row 3 Star -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="@dimen/dp_4"
+                            tools:ignore="UseCompoundDrawables">
+
+                            <TextView
+                                android:layout_width="24dp"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.App.Caption"
+                                android:textColor="@color/color_on_surface"
+                                android:textStyle="bold"
+                                android:text="3★" />
+
+                            <com.google.android.material.progressindicator.LinearProgressIndicator
+                                android:id="@+id/progress3Star"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginHorizontal="@dimen/dp_8"
+                                app:indicatorColor="@color/color_primary"
+                                app:trackColor="@color/color_surface_variant"
+                                app:trackCornerRadius="@dimen/corner_radius_small"
+                                app:trackThickness="@dimen/dp_6"
+                                android:progress="8" />
+
+                            <TextView
+                                android:id="@+id/tvCount3Star"
+                                android:layout_width="32dp"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.App.Caption"
+                                android:textColor="@color/color_hint"
+                                android:gravity="end"
+                                tools:text="8%" />
+                        </LinearLayout>
+
+                        <!-- Row 2 Star -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="@dimen/dp_4"
+                            tools:ignore="UseCompoundDrawables">
+
+                            <TextView
+                                android:layout_width="24dp"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.App.Caption"
+                                android:textColor="@color/color_on_surface"
+                                android:textStyle="bold"
+                                android:text="2★" />
+
+                            <com.google.android.material.progressindicator.LinearProgressIndicator
+                                android:id="@+id/progress2Star"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginHorizontal="@dimen/dp_8"
+                                app:indicatorColor="@color/color_primary"
+                                app:trackColor="@color/color_surface_variant"
+                                app:trackCornerRadius="@dimen/corner_radius_small"
+                                app:trackThickness="@dimen/dp_6"
+                                android:progress="4" />
+
+                            <TextView
+                                android:id="@+id/tvCount2Star"
+                                android:layout_width="32dp"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.App.Caption"
+                                android:textColor="@color/color_hint"
+                                android:gravity="end"
+                                tools:text="4%" />
+                        </LinearLayout>
+
+                        <!-- Row 1 Star -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            tools:ignore="UseCompoundDrawables">
+
+                            <TextView
+                                android:layout_width="24dp"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.App.Caption"
+                                android:textColor="@color/color_on_surface"
+                                android:textStyle="bold"
+                                android:text="1★" />
+
+                            <com.google.android.material.progressindicator.LinearProgressIndicator
+                                android:id="@+id/progress1Star"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginHorizontal="@dimen/dp_8"
+                                app:indicatorColor="@color/color_primary"
+                                app:trackColor="@color/color_surface_variant"
+                                app:trackCornerRadius="@dimen/corner_radius_small"
+                                app:trackThickness="@dimen/dp_6"
+                                android:progress="3" />
+
+                            <TextView
+                                android:id="@+id/tvCount1Star"
+                                android:layout_width="32dp"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.App.Caption"
+                                android:textColor="@color/color_hint"
+                                android:gravity="end"
+                                tools:text="3%" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Bottom Spacer to allow scrolling past sticky button -->
+                <Space
+                    android:id="@+id/bottomSpacer"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:layout_marginBottom="@dimen/dp_40"
+                    app:layout_constraintTop_toBottomOf="@id/layoutRatingsBreakdown"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </com.example.my_boilerplate.common.widgets.StateLayout>
+
+    <!-- Sticky Bottom Card Container for primary actions -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/layoutBottomActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:cardBackgroundColor="@color/color_surface"
+        app:cardElevation="@dimen/elevation_large"
+        app:cardMaxElevation="@dimen/elevation_large"
+        app:cardCornerRadius="0dp">
+
+        <!-- Top Border Divider on the bottom bar for premium separation -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/stroke_width_thin"
+                android:background="@color/color_outline" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/dp_16"
+                android:paddingVertical="@dimen/dp_12">
+
+                <!-- Wishlist Icon Outline Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnFavorite"
+                    style="@style/Widget.App.Button.Outline"
+                    android:layout_width="56dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginEnd="@dimen/dp_12"
+                    app:icon="@drawable/ic_favorite_border"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:iconSize="@dimen/icon_medium"
+                    app:iconTint="@color/color_primary"
+                    android:padding="0dp"
+                    android:contentDescription="Add to wishlist" />
+
+                <!-- Sticky Gradient Primary Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddToCart"
+                    style="@style/Widget.App.Button.Primary.Gradient"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_weight="1"
+                    android:text="Add to Cart" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
