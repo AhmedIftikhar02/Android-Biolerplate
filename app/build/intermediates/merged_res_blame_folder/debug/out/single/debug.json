@@ -1,0 +1,86 @@
+[
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "com.example.my_boilerplate.app-merged_res-62:/layout_home_item_product.xml.flat",
+        "source": "com.example.my_boilerplate.app-main-64:/layout/home_item_product.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\drawable_bg_card.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\drawable\\bg_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\drawable_bg_button_outline.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\drawable\\bg_button_outline.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\drawable_bg_card_outlined.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\drawable\\bg_card_outlined.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\mipmap-anydpi\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\layout_widget_state_layout.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\layout\\widget_state_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\navigation_nav_graph.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\navigation\\nav_graph.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\mipmap-anydpi\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\drawable_bg_edittext_outline.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\drawable\\bg_edittext_outline.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\layout_home_fragment.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\layout\\home_fragment.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\layout_home_item_product.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\layout\\home_item_product.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\drawable_bg_edittext_filled.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\drawable\\bg_edittext_filled.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\xml_network_security_config.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\xml\\network_security_config.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\drawable_bg_button_primary_gradient.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\drawable\\bg_button_primary_gradient.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\drawable_bg_button_primary.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\drawable\\bg_button_primary.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-merged_res-62:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.my_boilerplate.app-main-64:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    }
+]

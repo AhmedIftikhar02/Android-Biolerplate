@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <!--
+        Add new feature screens as more <fragment> nodes here, and connect them with
+        <action> tags. Safe Args (already in the Gradle setup) will generate type-safe
+        Directions/Args classes for any arguments you declare with <argument>, e.g. for a
+        product detail screen:
+
+        <fragment
+            android:id="@+id/productDetailFragment"
+            android:name="com.example.my_boilerplate.home.presentation.ui.ProductDetailFragment"
+            android:label="Product Detail">
+            <argument android:name="productId" app:argType="integer" />
+        </fragment>
+
+        and an <action android:id="@+id/action_home_to_detail" app:destination="@id/productDetailFragment" />
+        inside the homeFragment node below.
+    -->
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.my_boilerplate.home.presentation.ui.HomeFragment"
+        android:label="@string/home_title"
+        tools:layout="@layout/home_fragment" />
+
+</navigation>

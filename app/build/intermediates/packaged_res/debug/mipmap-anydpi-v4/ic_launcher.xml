@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Fallback for ALL API levels (no -v26 qualifier), since minSdk is 24 and adaptive icons
+    (mipmap-anydpi-v26) only apply on API 26+. Without this, devices on API 24-25 would have
+    no launcher icon resource to resolve at all.
+
+    This wraps the same placeholder vector as a plain (non-adaptive) icon. Replace properly
+    via Android Studio's Image Asset tool (res/ -> New -> Image Asset -> Launcher Icons),
+    which regenerates both the adaptive version AND this legacy fallback correctly with
+    your real branding.
+-->
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/ic_launcher_foreground" />

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My-Boilerplate</string>
+
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="error_network">No internet connection. Please check your network.</string>
+    <string name="empty_generic">Nothing to show here yet.</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_ok">OK</string>
+    <string name="action_cancel">Cancel</string>
+
+    <!-- Home feature -->
+    <string name="home_title">Products</string>
+    <string name="home_empty">No products found.</string>
+</resources>
